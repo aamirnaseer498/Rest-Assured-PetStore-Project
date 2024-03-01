@@ -10,13 +10,15 @@ public class EndPoints {
 
     public static Response createUser(User payload){
 
+        String requestURL= Routes.baseURL + "/user";
+
         Response response= given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body(payload)
 
                 .when()
-                .post(Routes.postURL);
+                .post(requestURL);
 
         return response;
 
@@ -24,11 +26,12 @@ public class EndPoints {
 
     public static Response getUser(String userName){
 
+        String requestURL= Routes.baseURL + "/user/" + userName;
+
         Response response= given()
-                .pathParam("username",userName)
 
                 .when()
-                .get(Routes.getURL);
+                .get(requestURL);
 
         return response;
 
@@ -36,14 +39,16 @@ public class EndPoints {
 
     public static Response updateUser(User payload, String userName){
 
+        String requestURL= Routes.baseURL + "/user/" + userName;
+
         Response response= given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .pathParam("username", userName)
                 .body(payload)
 
                 .when()
-                .put(Routes.putURL);
+                .put(requestURL);
+
 
         return response;
 
@@ -51,11 +56,12 @@ public class EndPoints {
 
     public static Response deleteUser(String userName){
 
+        String requestURL= Routes.baseURL + "/user/" + userName;
+
         Response response= given()
-                .pathParam("username",userName)
 
                 .when()
-                .delete(Routes.deleteURL);
+                .delete(requestURL);
 
         return response;
 

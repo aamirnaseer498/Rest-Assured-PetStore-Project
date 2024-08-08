@@ -20,17 +20,6 @@ public class EndPoints {
         String requestURL= Routes.postURL;
         System.out.println(requestURL);
 
-//        HashMap data= new HashMap<>();
-//
-//        data.put("id", payload.getId());
-//        data.put("username", payload.getUserName());
-//        data.put("firstName", payload.getFirstName());
-//        data.put("lastName", payload.getLastName());
-//        data.put("email", payload.getEmail());
-//        data.put("password", payload.getPassword());
-//        data.put("phone", payload.getPhone());
-//        data.put("userStatus", payload.getUserStatus());
-
         Response response= given()
                     .contentType(ContentType.JSON)
                     .accept(ContentType.JSON)

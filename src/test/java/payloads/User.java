@@ -1,14 +1,40 @@
 package payloads;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class User {
 
+    @SerializedName("id")
+    @Expose
     int id;
+
+    @SerializedName("username")
+    @Expose
     String userName;
+
+    @SerializedName("firstName")
+    @Expose
     String firstName;
+
+    @SerializedName("lastName")
+    @Expose
     String lastName;
+
+    @SerializedName("email")
+    @Expose
     String email;
+
+    @SerializedName("password")
+    @Expose
     String password;
+
+    @SerializedName("phone")
+    @Expose
     String phone;
+
+    @SerializedName("userStatus")
+    @Expose
     int userStatus;
 
     public int getId() {

@@ -18,7 +18,6 @@ public class EndPoints {
     public static Response createUser(User payload){
 
         String requestURL= Routes.postURL;
-        System.out.println(requestURL);
 
         Response response= given()
                     .contentType(ContentType.JSON)
@@ -28,8 +27,6 @@ public class EndPoints {
                     .when()
                     .post(requestURL);
 
-            System.out.println(payload.getUserName());
-
         return response;
 
     }
@@ -37,8 +34,6 @@ public class EndPoints {
     public static Response getUser(String userName){
 
         String requestURL= Routes.getURL + userName;
-        System.out.println(requestURL);
-        System.out.println(userName);
 
         Response response= given()
 
@@ -51,12 +46,12 @@ public class EndPoints {
 
     public static Response updateUser(User payload, String userName){
 
-        String requestURL= Routes.baseURL + "/user/" + userName;
+        String requestURL= Routes.putURL + userName;
 
         Response response= given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body(payload)
+                .body(new Gson().toJson(payload))
 
                 .when()
                 .put(requestURL);
@@ -68,7 +63,7 @@ public class EndPoints {
 
     public static Response deleteUser(String userName){
 
-        String requestURL= Routes.baseURL + "/user/" + userName;
+        String requestURL= Routes.deleteURL + userName;
 
         Response response= given()
 

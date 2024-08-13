@@ -19,14 +19,13 @@ public class UserTests {
         faker= new Faker();
         user= new User();
 
-        user.setId(Integer.parseInt(faker.number().digits(5)));
+        user.setId(faker.idNumber().hashCode());
         user.setUserName(faker.name().username());
         user.setFirstName(faker.name().firstName());
         user.setLastName(faker.name().lastName());
-        user.setEmail(faker.internet().emailAddress());
+        user.setEmail(faker.internet().safeEmailAddress());
         user.setPassword(faker.internet().password(8,12));
         user.setPhone(faker.phoneNumber().cellPhone());
-        user.setUserStatus(Integer.parseInt(faker.number().digits(1)));
 
     }
 
@@ -43,6 +42,32 @@ public class UserTests {
     public void getUser(){
 
         Response response= EndPoints.getUser(user.getUserName());
+        response.then().log().body();
+        Assert.assertEquals(response.getStatusCode(),200);
+
+    }
+
+    @Test(priority = 3)
+    public void updateUser(){
+
+        user.setFirstName(faker.name().firstName());
+        user.setLastName(faker.name().lastName());
+        user.setEmail(faker.internet().safeEmailAddress());
+
+        Response response= EndPoints.updateUser(user, user.getUserName());
+        response.then().log().body();
+        Assert.assertEquals(response.getStatusCode(),200);
+
+        Response updatedResponse= EndPoints.getUser(user.getUserName());
+        updatedResponse.then().log().body();
+        Assert.assertEquals(updatedResponse.getStatusCode(),200);
+
+    }
+
+    @Test(priority = 4)
+    public void deleteUser(){
+
+        Response response= EndPoints.deleteUser(user.getUserName());
         response.then().log().body();
         Assert.assertEquals(response.getStatusCode(),200);
 

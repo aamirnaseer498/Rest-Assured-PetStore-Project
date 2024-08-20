@@ -1,0 +1,8 @@
+20:03:32.928 [main] INFO  tests.UserTests - *****Creating User*****
+20:03:35.315 [main] INFO  tests.UserTests - *****User is created*****
+20:03:35.328 [main] INFO  tests.UserTests - *****Getting User*****
+20:03:36.522 [main] INFO  tests.UserTests - *****User is displayed*****
+20:03:36.525 [main] INFO  tests.UserTests - *****Updating User*****
+20:03:38.764 [main] INFO  tests.UserTests - *****User is updated*****
+20:03:38.766 [main] INFO  tests.UserTests - *****Deleting User*****
+20:03:39.843 [main] INFO  tests.UserTests - *****User is deleted*****

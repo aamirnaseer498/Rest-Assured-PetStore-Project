@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="utilities.GenerateReport"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/Users/9D/IdeaProjects/Rest-Assured-PetStore-Project" thread-count="5">
+        <classes>
+            <class name="tests.UserTests">
+                <methods>
+                    <include name="createUser"/>
+                    <include name="getUser"/>
+                    <include name="updateUser"/>
+                    <include name="deleteUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
